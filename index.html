@@ -139,6 +139,17 @@
         });
     }
 
+    function showInventory() {
+        const inventoryList = document.getElementById("savedScores");
+        inventoryList.innerHTML = "";
+        
+        savedFractions.forEach(item => {
+            const p = document.createElement("p");
+            p.innerText = `Saved Fraction: ${item.name} (${item.fraction})`;
+            inventoryList.appendChild(p);
+        });
+    }
+
     function changeBackgroundColor() {
         const hexColor = prompt("Enter Hex Color Code (e.g., #3498db):");
         document.body.style.backgroundColor = hexColor;
@@ -151,6 +162,7 @@
 </script>
 
 <button onclick="showIndex()">Index</button>
+<button onclick="showInventory()">Inventory</button>
 
 </body>
 </html>
