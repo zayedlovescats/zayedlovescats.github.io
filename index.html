@@ -45,6 +45,15 @@
             padding: 10px;
             border-radius: 5px;
             margin-top: 20px;
+            position: fixed;
+            top: 50px; /* Adjust the offset down */
+            right: 20px; /* Adjust the offset left */
+        }
+
+        #indexButton, #inventoryButton {
+            position: fixed;
+            top: 20px;
+            right: 20px;
         }
     </style>
 </head>
@@ -161,8 +170,8 @@
     });
 </script>
 
-<button onclick="showIndex()">Index</button>
-<button onclick="showInventory()">Inventory</button>
+<button id="indexButton" onclick="showIndex()">Index</button>
+<button id="inventoryButton" onclick="showInventory()">Inventory</button>
 
 </body>
 </html>
