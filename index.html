@@ -64,7 +64,18 @@
             color: #fff;
             padding: 8px 15px;
             font-size: 14px;
-            margin-top: 5px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #changeBackgroundColorButton {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 8px 15px;
+            font-size: 14px;
+            margin: 5px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
@@ -77,7 +88,7 @@
 
 <button onclick="generateRandomNumber()">Generate Number</button>
 <button onclick="saveScore()">Save</button>
-<button onclick="changeBackgroundColor()">Change Background Color</button>
+<button id="changeBackgroundColorButton" onclick="changeBackgroundColor()">Change Background Color</button>
 
 <p id="randomNumber"></p>
 
@@ -102,7 +113,7 @@
             numerator = 1;
             denominator = 5;
             name = "Iron";
-        else if (random < 0.8) {
+        } else if (random < 0.8) {
             numerator = 1;
             denominator = 10;
             name = "Gold";
