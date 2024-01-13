@@ -40,7 +40,7 @@
             align-items: center;
         }
 
-        #inventoryList {
+        #indexList, #inventoryList {
             background-color: #f0f0f0;
             padding: 10px;
             border-radius: 5px;
@@ -61,6 +61,7 @@
 <p id="randomNumber"></p>
 
 <div id="savedScores"></div>
+<div id="indexList"></div>
 <div id="inventoryList"></div>
 
 <script>
@@ -123,7 +124,7 @@
     }
 
     function showIndex() {
-        const indexList = document.getElementById("inventoryList");
+        const indexList = document.getElementById("indexList");
         indexList.innerHTML = "";
         
         const indexItems = [
