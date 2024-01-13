@@ -45,12 +45,6 @@
 
 <h1>Zayedlovescat's RNG Generator</h1>
 
-<button onclick="generateRandomNumber()">Generate Number</button>
-<p id="randomNumber"></p>
-
-<button onclick="saveScore()">Save</button>
-<div id="savedScores"></div>
-
 <!-- Hex Color Picker Script -->
 <script>
     function changeBackgroundColor() {
@@ -59,7 +53,13 @@
     }
 </script>
 
+<button onclick="generateRandomNumber()">Generate Number</button>
+<button onclick="saveScore()">Save</button>
 <button onclick="changeBackgroundColor()">Change Background Color</button>
+
+<p id="randomNumber"></p>
+
+<div id="savedScores"></div>
 
 <script>
     let currentFraction;
@@ -93,7 +93,6 @@
         isSaved = false;
 
         document.getElementById("randomNumber").innerText = `${name} (${currentFraction})`;
-        document.querySelector("button").innerText = "Generate Number";
     }
 
     function saveScore() {
