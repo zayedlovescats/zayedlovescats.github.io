@@ -40,7 +40,7 @@
             align-items: center;
         }
 
-        #indexList, #inventoryList {
+        #indexList {
             background-color: #f0f0f0;
             padding: 10px;
             border-radius: 5px;
@@ -50,13 +50,15 @@
             right: 20px;
             max-height: 150px; /* Limiting the height */
             overflow-y: auto; /* Adding a scrollbar if needed */
+            width: 200px; /* Adjust the width */
+            text-align: left; /* Align text to the left */
         }
 
         #closeButton {
             background-color: #e74c3c;
         }
 
-        #indexButton, #inventoryButton {
+        #indexButton {
             background-color: #2ecc71;
             color: #fff;
             padding: 8px 15px;
@@ -65,6 +67,7 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
+            vertical-align: top; /* Align with the top of other buttons */
         }
     </style>
 </head>
@@ -179,8 +182,7 @@
     });
 </script>
 
-<button onclick="showIndex()">Index</button>
-<button id="inventoryButton" onclick="showInventory()">Inventory</button>
+<button id="indexButton" onclick="showIndex()">Index</button>
 
 </body>
 </html>
