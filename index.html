@@ -39,27 +39,29 @@
             flex-direction: column-reverse;
             align-items: center;
         }
+
+        #inventoryList {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
 <h1>Zayedlovescat's RNG Generator</h1>
 
-<!-- Hex Color Picker Script -->
-<script>
-    function changeBackgroundColor() {
-        const hexColor = prompt("Enter Hex Color Code (e.g., #3498db):");
-        document.body.style.backgroundColor = hexColor;
-    }
-</script>
-
 <button onclick="generateRandomNumber()">Generate Number</button>
 <button onclick="saveScore()">Save</button>
 <button onclick="changeBackgroundColor()">Change Background Color</button>
+<button onclick="showIndex()">Index</button>
+<button onclick="showInventory()">Inventory</button>
 
 <p id="randomNumber"></p>
 
 <div id="savedScores"></div>
+<div id="inventoryList"></div>
 
 <script>
     let currentFraction;
@@ -82,6 +84,10 @@
             numerator = 1;
             denominator = 10;
             name = "Gold";
+        } else if (random < 0.04) {
+            numerator = 1;
+            denominator = 25;
+            name = "Diamond";
         } else {
             // Change Default to Dirt
             numerator = 1;
@@ -118,6 +124,47 @@
             p.innerText = `Saved Fraction: ${item.name} (${item.fraction})`;
             savedScoresElement.appendChild(p);
         });
+    }
+
+    function showIndex() {
+        const indexList = document.getElementById("inventoryList");
+        indexList.innerHTML = "";
+        
+        const indexItems = [
+            { name: "Dirt", value: "1/1" }
+            { name: "Coal", value: "1/2" },
+            { name: "Iron", value: "1/5" },
+            { name: "Gold", value: "1/10" },
+            { name: "Diamond", value: "1/25" },
+        ];
+
+        indexItems.forEach(item => {
+            const p = document.createElement("p");
+            p.innerText = `${item.name}: ${item.value}`;
+            indexList.appendChild(p);
+        });
+    }
+
+    function showInventory() {
+        const inventoryList = document.getElementById("inventoryList");
+        inventoryList.innerHTML = "";
+        
+        savedFractions.forEach(item => {
+            const p = document.createElement("p");
+            p.innerText = `Saved Fraction: ${item.name} (${item.fraction})`;
+            inventoryList.appendChild(p);
+        });
+
+        // Add a button to change the background color of the inventory list
+        const changeColorButton = document.createElement("button");
+        changeColorButton.innerText = "Change Inventory Background Color";
+        changeColorButton.onclick = () => changeInventoryBackgroundColor();
+        inventoryList.appendChild(changeColorButton);
+    }
+
+    function changeInventoryBackgroundColor() {
+        const hexColor = prompt("Enter Hex Color Code for Inventory Background (e.g., #ffffff):");
+        document.getElementById("inventoryList").style.backgroundColor = hexColor;
     }
 
     // Load saved fractions on page load
