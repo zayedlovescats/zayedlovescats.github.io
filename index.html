@@ -34,12 +34,6 @@
             white-space: nowrap;
         }
 
-        #savedScores {
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
-        }
-
         #indexList {
             background-color: #f0f0f0;
             padding: 10px;
@@ -107,90 +101,64 @@
 <h1>ZayedLovesCats RNG Generator</h1>
 
 <button onclick="generateRandomNumber()">Generate Number</button>
-<button onclick="saveScore()">Save</button>
 <button id="changeBackgroundColorButton" onclick="changeBackgroundColor()">Change Background Color</button>
 <button id="indexButton" onclick="toggleIndex()">Index</button>
 <button id="inventoryButton" onclick="toggleInventory()">Inventory</button>
 
 <p id="randomNumber"></p>
 
-<div id="savedScores"></div>
-
 <div id="indexList"></div>
 <div id="inventory"></div>
 
 <script>
     let currentFraction;
-    let savedFractions = JSON.parse(localStorage.getItem("savedFractions")) || [];
-    let isSaved = false;
 
-  function generateRandomNumber() {
-    const random = Math.random();
-    let numerator, denominator, name;
+    function generateRandomNumber() {
+        const random = Math.random();
+        let numerator, denominator, name;
 
-    if (random < 0.5) {
-        numerator = 1;
-        denominator = 2;
-        name = "Coal";
-    } else if (random < 0.7) {
-        numerator = 1;
-        denominator = 5;
-        name = "Iron";
-    } else if (random < 0.75) {
-        numerator = 1;
-        denominator = 10;
-        name = "Silver";
-    } else if (random < 0.8) {
-        numerator = 1;
-        denominator = 15;
-        name = "Gold";
-    } else if (random < 0.85) {
-        numerator = 1;
-        denominator = 25;
-        name = "Diamond";
-    } else if (random < 0.9) {
-        numerator = 1;
-        denominator = 50;
-        name = "Emerald";
-    } else {
-        // Change Default to Dirt
-        numerator = 1;
-        denominator = 1;
-        name = "Dirt";
+        if (random < 0.5) {
+            numerator = 1;
+            denominator = 2;
+            name = "Coal";
+        } else if (random < 0.7) {
+            numerator = 1;
+            denominator = 5;
+            name = "Iron";
+        } else if (random < 0.75) {
+            numerator = 1;
+            denominator = 10;
+            name = "Silver";
+        } else if (random < 0.8) {
+            numerator = 1;
+            denominator = 15;
+            name = "Gold";
+        } else if (random < 0.85) {
+            numerator = 1;
+            denominator = 25;
+            name = "Diamond";
+        } else if (random < 0.9) {
+            numerator = 1;
+            denominator = 50;
+            name = "Emerald";
+        } else {
+            // Change Default to Dirt
+            numerator = 1;
+            denominator = 1;
+            name = "Dirt";
+        }
+
+        currentFraction = `${numerator}/${denominator}`;
+
+        document.getElementById("randomNumber").innerText = `${name} (${currentFraction})`;
+        saveFraction({ name: name, fraction: currentFraction });
     }
 
-    currentFraction = `${numerator}/${denominator}`;
-    isSaved = false;
-
-    document.getElementById("randomNumber").innerText = `${name} (${currentFraction})`;
-}
-
-function saveScore() {
-    if (currentFraction !== undefined && !isSaved) {
-        savedFractions.push({ name: name, fraction: currentFraction });
-        savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
-        savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)); // Sort fractions in ascending order
-        localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
-        displayInventory();
-        isSaved = true;
-    } else if (isSaved) {
-        alert("You have already saved this fraction!");
-    } else {
-        alert("Generate a fraction first!");
-    }
-}
-
-
-    function displayInventory() {
+    function saveFraction(item) {
         const inventoryElement = document.getElementById("inventory");
-        inventoryElement.innerHTML = "";
-
-        savedFractions.forEach(item => {
-            const p = document.createElement("p");
-            p.innerText = `${item.name} (${item.fraction})`;
-            inventoryElement.appendChild(p);
-        });
-
+        const p = document.createElement("p");
+        p.innerText = `${item.name} (${item.fraction})`;
+        inventoryElement.appendChild(p);
         inventoryElement.style.display = "block"; // Show the inventory
     }
 
@@ -210,7 +178,7 @@ function saveScore() {
 
         indexItems.forEach(item => {
             const p = document.createElement("p");
-            p.innerText = `${item.name} (${item.numerator}/${item.denominator})`;
+            p.innerText = `${item.numerator}/${item.denominator} (${item.name})`;
             indexList.appendChild(p);
         });
 
@@ -229,7 +197,7 @@ function saveScore() {
     function toggleInventory() {
         const inventoryElement = document.getElementById("inventory");
         if (inventoryElement.style.display === "none") {
-            displayInventory();
+            inventoryElement.style.display = "block"; // Show the inventory
         } else {
             inventoryElement.style.display = "none";
         }
@@ -242,7 +210,16 @@ function saveScore() {
 
     // Load saved fractions on page load
     document.addEventListener("DOMContentLoaded", function() {
-        displayInventory();
+        const savedFractions = JSON.parse(localStorage.getItem("savedFractions")) || [];
+        const inventoryElement = document.getElementById("inventory");
+
+        savedFractions.forEach(item => {
+            const p = document.createElement("p");
+            p.innerText = `${item.name} (${item.fraction})`;
+            inventoryElement.appendChild(p);
+        });
+
+        inventoryElement.style.display = "block"; // Show the inventory
     });
 </script>
 
