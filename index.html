@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zayedlovescat's RNG Generator</title>
+    <title>zayedlovescats RNG Generator</title>
     <style>
         body {
             font-family: 'Comic Sans MS', cursive;
@@ -34,8 +34,6 @@
 </head>
 <body>
 
-<h1>Zayedlovescat's RNG Generator</h1>
-
 <button onclick="generateRandomNumber()">Click me to get your first RNG number</button>
 <p id="randomNumber"></p>
 
@@ -44,7 +42,7 @@
 
 <script>
     let currentNumber;
-    let savedScores = [];
+    let savedScores = JSON.parse(localStorage.getItem("savedScores")) || [];
 
     function generateRandomNumber() {
         currentNumber = Math.floor(Math.random() * 100) + 1;
@@ -55,11 +53,17 @@
     function saveScore() {
         if (currentNumber !== undefined) {
             savedScores.push(currentNumber);
+            localStorage.setItem("savedScores", JSON.stringify(savedScores));
             document.getElementById("savedScores").innerText = "Saved Scores: " + savedScores.join(", ");
         } else {
             alert("Generate a number first!");
         }
     }
+
+    // Load saved scores on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("savedScores").innerText = "Saved Scores: " + savedScores.join(", ");
+    });
 </script>
 
 </body>
