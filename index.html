@@ -8,26 +8,28 @@
         body {
             font-family: 'Comic Sans MS', cursive;
             text-align: center;
-            margin: 50px;
+            margin: 30px;
         }
 
         h1 {
             color: #3498db;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
         button {
             background-color: #2ecc71;
             color: #fff;
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 10px;
+            padding: 8px 15px;
+            font-size: 14px;
+            margin: 5px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
         }
 
         p {
-            font-size: 18px;
+            font-size: 16px;
             color: #34495e;
             white-space: nowrap;
         }
@@ -43,10 +45,10 @@
 
 <h1>Zayedlovescat's RNG Generator</h1>
 
-<button onclick="generateRandomNumber()">Click me to get your first RNG number</button>
+<button onclick="generateRandomNumber()">Generate Number</button>
 <p id="randomNumber"></p>
 
-<button onclick="saveScore()">Save Score</button>
+<button onclick="saveScore()">Save</button>
 <div id="savedScores"></div>
 
 <script>
@@ -73,12 +75,12 @@
             // Add more cases as needed
             numerator = 1;
             denominator = 1;
-            name = "Dirt";
+            name = "Default";
         }
 
         currentFraction = `${numerator}/${denominator}`;
 
-        document.getElementById("randomNumber").innerText = `Generated Fraction: ${name} (${currentFraction})`;
+        document.getElementById("randomNumber").innerText = `${name} (${currentFraction})`;
         document.querySelector("button").innerText = "Generate Number";
 
         // Automatically save the generated fraction
