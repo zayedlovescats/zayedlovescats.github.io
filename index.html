@@ -64,11 +64,10 @@
             color: #fff;
             padding: 8px 15px;
             font-size: 14px;
-            margin: 5px;
+            margin-top: 5px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            vertical-align: top; /* Align with the top of other buttons */
         }
     </style>
 </head>
@@ -103,7 +102,7 @@
             numerator = 1;
             denominator = 5;
             name = "Iron";
-        } else if (random < 0.8) {
+        else if (random < 0.8) {
             numerator = 1;
             denominator = 10;
             name = "Gold";
@@ -150,10 +149,11 @@
         indexList.innerHTML = "";
         
         const indexItems = [
+            { numerator: 1, denominator: 1, name: "Dirt" }
             { numerator: 1, denominator: 2, name: "Coal" },
             { numerator: 1, denominator: 5, name: "Iron" },
             { numerator: 1, denominator: 10, name: "Gold" },
-            { numerator: 1, denominator: 1, name: "Dirt" }
+            
         ];
 
         indexItems.forEach(item => {
