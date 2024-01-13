@@ -160,7 +160,7 @@
         if (currentFraction !== undefined && !isSaved) {
             savedFractions.push({ name, fraction: currentFraction });
             savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
-            savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)).reverse(); // Sort fractions in descending order
+            savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)); // Sort fractions in ascending order
             localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
             displayInventory();
             isSaved = true;
