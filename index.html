@@ -3,16 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>zayedlovescat's rng generator</title>
+    <title>Zayedlovescat's RNG Generator</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #34495e;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Random Number Generator</h1>
+<h1>Zayedlovescat's RNG Generator</h1>
 
-<button onclick="generateRandomNumber()">generate number</button>
+<button onclick="generateRandomNumber()">Click me to get your first RNG number</button>
 <p id="randomNumber"></p>
 
-<button onclick="saveScore()">save your score</button>
+<button onclick="saveScore()">Save Score</button>
 <p id="savedScores"></p>
 
 <script>
@@ -20,8 +47,9 @@
     let savedScores = [];
 
     function generateRandomNumber() {
-        currentNumber = Math.floor(Math.random() * 100000000) + 1;
+        currentNumber = Math.floor(Math.random() * 100) + 1;
         document.getElementById("randomNumber").innerText = "Generated Number: " + currentNumber;
+        document.querySelector("button").innerText = "Generate Number";
     }
 
     function saveScore() {
@@ -29,7 +57,7 @@
             savedScores.push(currentNumber);
             document.getElementById("savedScores").innerText = "Saved Scores: " + savedScores.join(", ");
         } else {
-            alert("you didnt generate a number click the generate number button to generate a number!! </3");
+            alert("Generate a number first!");
         }
     }
 </script>
