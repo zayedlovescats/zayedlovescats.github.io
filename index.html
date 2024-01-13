@@ -61,10 +61,10 @@
             border-radius: 5px;
             margin-top: 20px;
             margin-left: 20px; /* Adjusted to be on the left side */
-            width: 180px; /* Adjusted width */
+            width: 350px; /* Adjusted width */
             max-height: 200px; /* Adjusted height */
             overflow-y: auto; /* Adding a scrollbar if needed */
-            text-align: left; /* Align text to the left */
+            text-align: center;
             display: none; /* Hide by default */
         }
 
@@ -164,7 +164,7 @@
         if (currentFraction !== undefined && !isSaved) {
             savedFractions.push({ name, fraction: currentFraction });
             savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
-            savedFractions.sort((a, b) => eval(b.fraction) - eval(a.fraction)); // Sort fractions in descending order
+            savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)); // Sort fractions in ascending order
             localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
             displayInventory();
             isSaved = true;
