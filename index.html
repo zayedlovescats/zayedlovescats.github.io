@@ -60,7 +60,9 @@
             padding: 10px;
             border-radius: 5px;
             margin-top: 20px;
-            max-height: 150px; /* Limiting the height */
+            margin-left: 20px; /* Adjusted to be on the left side */
+            width: 150px; /* Adjusted width */
+            max-height: 200px; /* Adjusted height */
             overflow-y: auto; /* Adding a scrollbar if needed */
             text-align: left; /* Align text to the left */
             display: none; /* Hide by default */
@@ -164,7 +166,7 @@
             savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
             savedFractions.sort((a, b) => eval(b.fraction) - eval(a.fraction)); // Sort fractions in descending order
             localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
-            displaySavedScores();
+            displayInventory();
             isSaved = true;
         } else if (isSaved) {
             alert("You have already saved this fraction!");
@@ -173,14 +175,17 @@
         }
     }
 
-    function displaySavedScores() {
-        const savedScoresElement = document.getElementById("savedScores");
-        savedScoresElement.innerHTML = "";
+    function displayInventory() {
+        const inventoryElement = document.getElementById("inventory");
+        inventoryElement.innerHTML = "";
+
         savedFractions.forEach(item => {
             const p = document.createElement("p");
-            p.innerText = `Saved Fraction: ${item.name} (${item.fraction})`;
-            savedScoresElement.appendChild(p);
+            p.innerText = `${item.name} (${item.fraction})`;
+            inventoryElement.appendChild(p);
         });
+
+        inventoryElement.style.display = "block"; // Show the inventory
     }
 
     function showIndex() {
@@ -212,16 +217,7 @@
     }
 
     function showInventory() {
-        const inventory = document.getElementById("inventory");
-        inventory.innerHTML = "";
-
-        savedFractions.forEach(item => {
-            const p = document.createElement("p");
-            p.innerText = `${item.name} (${item.fraction})`;
-            inventory.appendChild(p);
-        });
-
-        inventory.style.display = "block"; // Show the inventory
+        displayInventory();
     }
 
     function changeBackgroundColor() {
@@ -231,7 +227,7 @@
 
     // Load saved fractions on page load
     document.addEventListener("DOMContentLoaded", function() {
-        displaySavedScores();
+        displayInventory();
     });
 </script>
 
