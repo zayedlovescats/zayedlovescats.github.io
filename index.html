@@ -147,6 +147,20 @@
     function generateRandomNumber() {
         const random = Math.random();
 
+     // Your existing code for generating the random number...
+
+    currentFraction = `${numerator}/${denominator}`;
+    isSaved = false;
+
+    document.getElementById("randomNumber").innerText = `${name} (${currentFraction})`;
+
+    // Add setTimeout to disable the button and re-enable after a delay
+    document.getElementById("generateButton").disabled = true;
+    setTimeout(function () {
+        document.getElementById("generateButton").disabled = false;
+    }, 1000); // Adjust the delay time as needed (e.g., 1000 milliseconds)
+}
+
         if (random < 0.1) {
             numerator = 1;
             denominator = 2;
