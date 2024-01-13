@@ -84,10 +84,6 @@
             numerator = 1;
             denominator = 10;
             name = "Gold";
-        } else if (random < 0.04) {
-            numerator = 1;
-            denominator = 25;
-            name = "Diamond";
         } else {
             // Change Default to Dirt
             numerator = 1;
@@ -131,11 +127,10 @@
         indexList.innerHTML = "";
         
         const indexItems = [
-            { name: "Dirt", value: "1/1" }
             { name: "Coal", value: "1/2" },
             { name: "Iron", value: "1/5" },
             { name: "Gold", value: "1/10" },
-            { name: "Diamond", value: "1/25" },
+            { name: "Dirt", value: "1/1" }
         ];
 
         indexItems.forEach(item => {
@@ -163,7 +158,7 @@
     }
 
     function changeInventoryBackgroundColor() {
-        const hexColor = prompt("Enter Hex Color Code for Inventory Background (e.g., #ffffff):");
+        const hexColor = prompt("Enter Hex Color Code for Inventory Background (e.g., #f0f0f0):");
         document.getElementById("inventoryList").style.backgroundColor = hexColor;
     }
 
