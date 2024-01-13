@@ -124,61 +124,62 @@
     let savedFractions = JSON.parse(localStorage.getItem("savedFractions")) || [];
     let isSaved = false;
 
-    function generateRandomNumber() {
-        const random = Math.random();
-        let numerator, denominator, name;
+  function generateRandomNumber() {
+    const random = Math.random();
+    let numerator, denominator, name;
 
-        if (random < 0.5) {
-            numerator = 1;
-            denominator = 2;
-            name = "Coal";
-        } else if (random < 0.7) {
-            numerator = 1;
-            denominator = 5;
-            name = "Iron";
-        } else if (random < 0.75) {
-            numerator = 1;
-            denominator = 10;
-            name = "Silver";
-        } else if (random < 0.8) {
-            numerator = 1;
-            denominator = 15;
-            name = "Gold";
-        } else if (random < 0.85) {
-            numerator = 1;
-            denominator = 25;
-            name = "Diamond";
-        } else if (random < 0.9) {
-            numerator = 1;
-            denominator = 50;
-            name = "Emerald";
-        } else {
-            // Change Default to Dirt
-            numerator = 1;
-            denominator = 1;
-            name = "Dirt";
-        }
-
-        currentFraction = `${numerator}/${denominator}`;
-        isSaved = false;
-
-        document.getElementById("randomNumber").innerText = `${name} (${currentFraction})`;
+    if (random < 0.5) {
+        numerator = 1;
+        denominator = 2;
+        name = "Coal";
+    } else if (random < 0.7) {
+        numerator = 1;
+        denominator = 5;
+        name = "Iron";
+    } else if (random < 0.75) {
+        numerator = 1;
+        denominator = 10;
+        name = "Silver";
+    } else if (random < 0.8) {
+        numerator = 1;
+        denominator = 15;
+        name = "Gold";
+    } else if (random < 0.85) {
+        numerator = 1;
+        denominator = 25;
+        name = "Diamond";
+    } else if (random < 0.9) {
+        numerator = 1;
+        denominator = 50;
+        name = "Emerald";
+    } else {
+        // Change Default to Dirt
+        numerator = 1;
+        denominator = 1;
+        name = "Dirt";
     }
 
-    function saveScore() {
-        if (currentFraction !== undefined && !isSaved) {
-            savedFractions.push({ name, fraction: currentFraction });
-            savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
-            savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)); // Sort fractions in ascending order
-            localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
-            displayInventory();
-            isSaved = true;
-        } else if (isSaved) {
-            alert("You have already saved this fraction!");
-        } else {
-            alert("Generate a fraction first!");
-        }
+    currentFraction = `${numerator}/${denominator}`;
+    isSaved = false;
+
+    document.getElementById("randomNumber").innerText = `${name} (${currentFraction})`;
+}
+
+function saveScore() {
+    if (currentFraction !== undefined && !isSaved) {
+        savedFractions.push({ name: name, fraction: currentFraction });
+        savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
+        savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)); // Sort fractions in ascending order
+        localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
+        displayInventory();
+        isSaved = true;
+    } else if (isSaved) {
+        alert("You have already saved this fraction!");
+    } else {
+        alert("Generate a fraction first!");
     }
+}
+
 
     function displayInventory() {
         const inventoryElement = document.getElementById("inventory");
