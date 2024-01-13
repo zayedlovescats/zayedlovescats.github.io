@@ -29,6 +29,13 @@
         p {
             font-size: 18px;
             color: #34495e;
+            white-space: nowrap;
+        }
+
+        #savedScores {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
         }
     </style>
 </head>
@@ -40,23 +47,38 @@
 <p id="randomNumber"></p>
 
 <button onclick="saveScore()">Save Score</button>
-<p id="savedScores"></p>
+<div id="savedScores"></div>
 
 <script>
     let currentFraction;
     let savedFractions = JSON.parse(localStorage.getItem("savedFractions")) || [];
 
     function generateRandomNumber() {
-        const numeratorOptions = [1, 1, 15, 1, 1]; // Add or modify numerators as needed
-        const denominatorOptions = [2, 2, 10, 25, 5]; // Add or modify denominators as needed
-        const randomIndex = Math.floor(Math.random() * numeratorOptions.length);
-        
-        const numerator = numeratorOptions[randomIndex];
-        const denominator = denominatorOptions[randomIndex];
-        
+        const random = Math.random();
+        let numerator, denominator, name;
+
+        if (random < 0.5) {
+            numerator = 1;
+            denominator = 2;
+            name = "Coal";
+        } else if (random < 0.7) {
+            numerator = 1;
+            denominator = 5;
+            name = "Iron";
+        } else if (random < 0.8) {
+            numerator = 1;
+            denominator = 10;
+            name = "Gold";
+        } else {
+            // Add more cases as needed
+            numerator = 1;
+            denominator = 1;
+            name = "Dirt";
+        }
+
         currentFraction = `${numerator}/${denominator}`;
-        
-        document.getElementById("randomNumber").innerText = `Generated Fraction: ${currentFraction}`;
+
+        document.getElementById("randomNumber").innerText = `Generated Fraction: ${name} (${currentFraction})`;
         document.querySelector("button").innerText = "Generate Number";
 
         // Automatically save the generated fraction
@@ -65,17 +87,28 @@
 
     function saveScore() {
         if (currentFraction !== undefined) {
-            savedFractions.push(currentFraction);
+            savedFractions.push({ name, fraction: currentFraction });
+            savedFractions.sort((a, b) => eval(b.fraction) - eval(a.fraction)); // Sort fractions in descending order
             localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
-            document.getElementById("savedScores").innerText = "Saved Fractions: " + savedFractions.join(", ");
+            displaySavedScores();
         } else {
             alert("Generate a fraction first!");
         }
     }
 
+    function displaySavedScores() {
+        const savedScoresElement = document.getElementById("savedScores");
+        savedScoresElement.innerHTML = "";
+        savedFractions.forEach(item => {
+            const p = document.createElement("p");
+            p.innerText = `Saved Fraction: ${item.name} (${item.fraction})`;
+            savedScoresElement.appendChild(p);
+        });
+    }
+
     // Load saved fractions on page load
     document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("savedScores").innerText = "Saved Fractions: " + savedFractions.join(", ");
+        displaySavedScores();
     });
 </script>
 
