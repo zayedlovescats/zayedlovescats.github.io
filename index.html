@@ -1,34 +1,21 @@
 <html>
-  
-  <body>
-
-  <p id="number" </p>
-  <button id="b" onclick="random();">click me (it does something!)</button>
-</body>
-  
-<script>
-  function random() {
-    document.getElementById("number").innerHTML = Math.floor(Math.random() * 100000000);
-
-}
-
-</script>
-
-  <style>
-
-    #number{
-
-      font-size:23px;
-
-    }
-
-#b{
-
-  width:90px;
-  height: 55px;
-
-}
-
-</style>
-
+    <head>
+        <script src="https://zayedlovescats.github.io"></script>
+        <script>
+            function showRandomNumber(){
+                document.getElementById("myNumber").innerHTML = random(1,10000000);
+            }
+        </script>
+        <style>
+            #myNumber{
+                font-size:100px;
+                text-align:center;
+                margin:50px auto;
+                font-family:Arial, sans-serif;
+            }
+        </style>
+    </head>
+    <body onload="showRandomNumber();">
+        <div id="myNumber"></div>
+    </body>
 </html>
