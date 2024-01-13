@@ -179,9 +179,9 @@
 
     function saveScore() {
         if (currentFraction !== undefined && !isSaved) {
-            savedFractions.push({ name, fraction: currentFraction });
-            savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
-            savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)); // Sort fractions in ascending order
+            savedFractions.push({ name, numerator, denominator });
+            savedFractions = savedFractions.filter(item => item.numerator !== undefined); // Filter out undefined entries
+            savedFractions.sort((a, b) => eval(`${a.numerator}/${a.denominator}`) - eval(`${b.numerator}/${b.denominator}`)); // Sort fractions in ascending order
             localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
             displayInventory();
             isSaved = true;
@@ -198,7 +198,7 @@
 
         savedFractions.forEach(item => {
             const p = document.createElement("p");
-            p.innerText = `${item.name} (${item.fraction})`;
+            p.innerText = `${item.name} (${item.numerator}/${item.denominator})`;
             inventoryElement.appendChild(p);
         });
 
