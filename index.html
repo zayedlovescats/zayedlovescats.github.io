@@ -1,14 +1,37 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zayedlovescat's rng generator</title>
+</head>
+<body>
 
-<button onclick="setInterval(function, 1000).document.getElementById('button').innerHTML = getRndInteger(0,100000000)">click me to generate a number</button>
+<h1>Random Number Generator</h1>
 
+<button onclick="generateRandomNumber()">generate number</button>
+<p id="randomNumber"></p>
 
-<p id="button"></p>
+<button onclick="saveScore()">save your score</button>
+<p id="savedScores"></p>
 
 <script>
-function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+    let currentNumber;
+    let savedScores = [];
+
+    function generateRandomNumber() {
+        currentNumber = Math.floor(Math.random() * 100000000) + 1;
+        document.getElementById("randomNumber").innerText = "Generated Number: " + currentNumber;
+    }
+
+    function saveScore() {
+        if (currentNumber !== undefined) {
+            savedScores.push(currentNumber);
+            document.getElementById("savedScores").innerText = "Saved Scores: " + savedScores.join(", ");
+        } else {
+            alert("you didnt generate a number click the generate number button to generate a number!! </3");
+        }
+    }
 </script>
 
 </body>
