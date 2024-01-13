@@ -53,7 +53,7 @@
             padding: 10px;
             border-radius: 5px;
             margin-top: 20px;
-            margin-left: 1900px;
+            margin-left: 1800px;
             max-height: 450px; /* Limiting the height */
             overflow-y: auto; /* Adding a scrollbar if needed */
             width: 350px; /* Adjust the width */
@@ -140,11 +140,11 @@
     function generateRandomNumber() {
         const random = Math.random();
 
-        if (random < 0.5) {
+        if (random < 0.65) {
             numerator = 1;
             denominator = 2;
             name = "Coal";
-        } else if (random < 0.4) {
+        } else if (random < 0.5) {
             numerator = 1;
             denominator = 17.5;
             name = "Platinum";
@@ -164,7 +164,7 @@
             numerator = 1;
             denominator = 15;
             name = "Gold";
-        } else if (random < 0.3) {
+        } else if (random < 0.4) {
             numerator = 1;
             denominator = 25;
             name = "Diamond";
