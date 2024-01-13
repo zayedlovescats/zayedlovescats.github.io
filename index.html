@@ -46,8 +46,14 @@
             border-radius: 5px;
             margin-top: 20px;
             position: fixed;
-            top: 50px; /* Adjust the offset down */
-            right: 20px; /* Adjust the offset left */
+            top: 50px;
+            right: 20px;
+            max-height: 150px; /* Limiting the height */
+            overflow-y: auto; /* Adding a scrollbar if needed */
+        }
+
+        #closeButton {
+            background-color: #e74c3c;
         }
 
         #indexButton, #inventoryButton {
@@ -151,17 +157,15 @@
             p.innerText = `${item.numerator}/${item.denominator} (${item.name})`;
             indexList.appendChild(p);
         });
-    }
 
-    function showInventory() {
-        const inventoryList = document.getElementById("savedScores");
-        inventoryList.innerHTML = "";
-        
-        savedFractions.forEach(item => {
-            const p = document.createElement("p");
-            p.innerText = `Saved Fraction: ${item.name} (${item.fraction})`;
-            inventoryList.appendChild(p);
-        });
+        const closeButton = document.createElement("button");
+        closeButton.id = "closeButton";
+        closeButton.innerText = "Close";
+        closeButton.onclick = function() {
+            indexList.innerHTML = "";
+        };
+
+        indexList.appendChild(closeButton);
     }
 
     function changeBackgroundColor() {
@@ -175,7 +179,7 @@
     });
 </script>
 
-<button id="indexButton" onclick="showIndex()">Index</button>
+<button onclick="showIndex()">Index</button>
 <button id="inventoryButton" onclick="showInventory()">Inventory</button>
 
 </body>
