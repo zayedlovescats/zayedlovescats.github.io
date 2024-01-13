@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zayedlovescat's RNG Generator</title>
+    <title>ZayedLovesCats RNG Generator</title>
     <style>
         body {
             font-family: 'Comic Sans MS', cursive;
@@ -111,12 +111,12 @@
 </head>
 <body>
 
-<h1>Zayedlovescat's RNG Generator</h1>
+<h1>ZayedLovesCats RNG Generator</h1>
 
 <button onclick="generateRandomNumber()">Generate Number</button>
 <button onclick="saveScore()">Save</button>
 <button id="changeBackgroundColorButton" onclick="changeBackgroundColor()">Change Background Color</button>
-<button id="indexButton" onclick="showIndex()">Index</button>
+<button id="indexButton" onclick="toggleIndex()">Index</button>
 <button id="inventoryButton" onclick="toggleInventory()">Inventory</button>
 
 <p id="randomNumber"></p>
@@ -164,7 +164,7 @@
         if (currentFraction !== undefined && !isSaved) {
             savedFractions.push({ name, fraction: currentFraction });
             savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
-            savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)); // Sort fractions in ascending order
+            savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)).reverse(); // Sort fractions in descending order
             localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
             displayInventory();
             isSaved = true;
@@ -193,9 +193,9 @@
         indexList.innerHTML = "";
         
         const indexItems = [
-            { numerator: 1, denominator: 2, name: "Coal" },
-            { numerator: 1, denominator: 5, name: "Iron" },
             { numerator: 1, denominator: 10, name: "Gold" },
+            { numerator: 1, denominator: 5, name: "Iron" },
+            { numerator: 1, denominator: 2, name: "Coal" },
             { numerator: 1, denominator: 1, name: "Dirt" }
         ];
 
@@ -214,6 +214,15 @@
 
         indexList.appendChild(closeButton);
         indexList.style.display = "block"; // Show the indexList
+    }
+
+    function toggleIndex() {
+        const indexList = document.getElementById("indexList");
+        if (indexList.style.display === "none") {
+            showIndex();
+        } else {
+            indexList.style.display = "none";
+        }
     }
 
     function toggleInventory() {
