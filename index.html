@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <script>
-            function showRandomNumber(){
-                document.getElementById("myNumber").innerHTML = random(1,10000000);
-            }
-        </script>
-        <style>
-            #myNumber{
-                font-size:25px;
-                text-align:center;
-                margin:50px auto;
-                font-family:Arial, sans-serif;
-            }
-        </style>
-    </head>
-    <body onload="showRandomNumber();">
-        <div id="myNumber"></div>
-    </body>
+
+<button onclick="document.getElementById('button').innerHTML = getRndInteger(0,100000000)">click me to generate a number</button>
+
+<p id="button"></p>
+
+<script>
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+</script>
+
+</body>
 </html>
