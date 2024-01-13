@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZayedLovesCats RNG Generator</title>
+    <title>Zayedlovescat's RNG Generator</title>
     <style>
         body {
             font-family: 'Comic Sans MS', cursive;
@@ -43,7 +43,7 @@
 </head>
 <body>
 
-<h1>ZayedLovesCats RNG Generator</h1>
+<h1>Zayedlovescat's RNG Generator</h1>
 
 <button onclick="generateRandomNumber()">Generate Number</button>
 <p id="randomNumber"></p>
@@ -54,6 +54,7 @@
 <script>
     let currentFraction;
     let savedFractions = JSON.parse(localStorage.getItem("savedFractions")) || [];
+    let isSaved = false;
 
     function generateRandomNumber() {
         const random = Math.random();
@@ -79,17 +80,24 @@
         }
 
         currentFraction = `${numerator}/${denominator}`;
+        isSaved = false;
 
         document.getElementById("randomNumber").innerText = `${name} (${currentFraction})`;
         document.querySelector("button").innerText = "Generate Number";
     }
 
     function saveScore() {
-        if (currentFraction !== undefined) {
+        if (currentFraction !== undefined && !isSaved) {
+            // Remove fractions with undefined values
+            savedFractions = savedFractions.filter(item => item.fraction !== undefined);
+
             savedFractions.push({ name, fraction: currentFraction });
             savedFractions.sort((a, b) => eval(b.fraction) - eval(a.fraction)); // Sort fractions in descending order
             localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
             displaySavedScores();
+            isSaved = true;
+        } else if (isSaved) {
+            alert("You have already saved this fraction!");
         } else {
             alert("Generate a fraction first!");
         }
