@@ -170,10 +170,9 @@
 }
 
 
-   function saveScore() {
-    if (currentFraction !== undefined && !isSaved) {
-        let fractionToAdd = { name, fraction: currentFraction };
-        savedFractions.push(fractionToAdd);
+  function saveScore() {
+    if (name !== undefined && currentFraction !== undefined && !isSaved) {
+        savedFractions.push({ name, fraction: currentFraction });
         savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
         savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)); // Sort fractions in ascending order
         localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
