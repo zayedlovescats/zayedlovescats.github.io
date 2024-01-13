@@ -51,6 +51,16 @@
 <button onclick="saveScore()">Save</button>
 <div id="savedScores"></div>
 
+<!-- Hex Color Picker Script -->
+<script>
+    function changeBackgroundColor() {
+        const hexColor = prompt("Enter Hex Color Code (e.g., #3498db):");
+        document.body.style.backgroundColor = hexColor;
+    }
+</script>
+
+<button onclick="changeBackgroundColor()">Change Background Color</button>
+
 <script>
     let currentFraction;
     let savedFractions = JSON.parse(localStorage.getItem("savedFractions")) || [];
@@ -88,10 +98,8 @@
 
     function saveScore() {
         if (currentFraction !== undefined && !isSaved) {
-            // Remove fractions with undefined values
-            savedFractions = savedFractions.filter(item => item.fraction !== undefined);
-
             savedFractions.push({ name, fraction: currentFraction });
+            savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
             savedFractions.sort((a, b) => eval(b.fraction) - eval(a.fraction)); // Sort fractions in descending order
             localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
             displaySavedScores();
