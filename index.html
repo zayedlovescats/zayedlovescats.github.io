@@ -177,20 +177,20 @@
         document.getElementById("randomNumber").innerText = `${name} (${currentFraction})`;
     }
 
-    function saveScore() {
-        if (currentFraction !== undefined && !isSaved) {
-            savedFractions.push({ name, numerator, denominator });
-            savedFractions = savedFractions.filter(item => item.numerator !== undefined); // Filter out undefined entries
-            savedFractions.sort((a, b) => eval(`${a.numerator}/${a.denominator}`) - eval(`${b.numerator}/${b.denominator}`)); // Sort fractions in ascending order
-            localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
-            displayInventory();
-            isSaved = true;
-        } else if (isSaved) {
-            alert("You have already saved this fraction!");
-        } else {
-            alert("Generate a fraction first!");
-        }
+   function saveScore() {
+    if (currentFraction !== undefined && !isSaved) {
+        savedFractions.push({ name, fraction: `${numerator}/${denominator}`, numerator, denominator });
+        savedFractions = savedFractions.filter(item => item.numerator !== undefined); // Filter out undefined entries
+        savedFractions.sort((a, b) => eval(`${a.numerator}/${a.denominator}`) - eval(`${b.numerator}/${b.denominator}`)); // Sort fractions in ascending order
+        localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
+        displayInventory();
+        isSaved = true;
+    } else if (isSaved) {
+        alert("You have already saved this fraction!");
+    } else {
+        alert("Generate a fraction first!");
     }
+}
 
     function displayInventory() {
         const inventoryElement = document.getElementById("inventory");
