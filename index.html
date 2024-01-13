@@ -136,7 +136,7 @@
     let savedFractions = JSON.parse(localStorage.getItem("savedFractions")) || [];
     let isSaved = false;
 
-   function generateRandomNumber() {
+ function generateRandomNumber() {
     const random = Math.random();
     let numerator = 1, denominator = 2, name;
 
@@ -168,6 +168,7 @@
 
     document.getElementById("randomNumber").innerText = `${name} (${currentFraction})`;
 }
+
 
    function saveScore() {
     if (currentFraction !== undefined && !isSaved) {
