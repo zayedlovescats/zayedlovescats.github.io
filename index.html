@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 
-<button onclick="document.getElementById('button').innerHTML = getRndInteger(0,100000000)">click me to generate a number</button>
+<html>
+  <body>
+
+<h2>click the button()</h2>
+
+<p>everytime u click the button u generate a random number</p>
+
+<button onclick="document.getElementById('button').innerHTML = getRndInteger(0,100000)">Click Me</button>
 
 <p id="button"></p>
 
@@ -8,7 +15,8 @@
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+  
 </script>
 
-</body>
+  </body>
 </html>
