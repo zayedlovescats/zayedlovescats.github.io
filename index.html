@@ -1,1 +1,34 @@
-<button>click here (it does nothing)</button>
+<html>
+  
+  <body>
+
+  <p id="number" </p>
+  <button id="b" onclick="random();">click me (it does something!)</button>
+</body>
+  
+<script>
+  function random() {
+    document.getElementById("number").innerHTML = Math.floor(Math.random() * 100000000);
+
+}
+
+</script>
+
+  <style>
+
+    #number{
+
+      font-size:23px;
+
+    }
+
+#b{
+
+  width:90px;
+  height: 55px;
+
+}
+
+</style>
+
+</html>
