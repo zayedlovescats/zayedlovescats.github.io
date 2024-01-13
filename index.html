@@ -68,10 +68,6 @@
             display: none; /* Hide by default */
         }
 
-        #closeButton {
-            background-color: #e74c3c;
-        }
-
         #indexButton {
             background-color: #2ecc71;
             color: #fff;
@@ -205,14 +201,6 @@
             indexList.appendChild(p);
         });
 
-        const closeButton = document.createElement("button");
-        closeButton.id = "closeButton";
-        closeButton.innerText = "Close";
-        closeButton.onclick = function() {
-            indexList.style.display = "none"; // Hide the indexList
-        };
-
-        indexList.appendChild(closeButton);
         indexList.style.display = "block"; // Show the indexList
     }
 
