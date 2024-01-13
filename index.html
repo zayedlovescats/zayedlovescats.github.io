@@ -47,7 +47,7 @@
     let savedScores = JSON.parse(localStorage.getItem("savedScores")) || [];
 
     function generateRandomNumber() {
-        currentNumber = Math.floor(Math.random() * 100) + 1;
+        currentNumber = Math.floor(Math.random() * 100000000) + 1;
         document.getElementById("randomNumber").innerText = "Generated Number: " + currentNumber;
         document.querySelector("button").innerText = "Generate Number";
     }
