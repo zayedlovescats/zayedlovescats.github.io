@@ -55,14 +55,12 @@
 <button onclick="generateRandomNumber()">Generate Number</button>
 <button onclick="saveScore()">Save</button>
 <button onclick="changeBackgroundColor()">Change Background Color</button>
-<button onclick="showIndex()">Index</button>
-<button onclick="showInventory()">Inventory</button>
 
 <p id="randomNumber"></p>
 
 <div id="savedScores"></div>
+
 <div id="indexList"></div>
-<div id="inventoryList"></div>
 
 <script>
     let currentFraction;
@@ -128,39 +126,22 @@
         indexList.innerHTML = "";
         
         const indexItems = [
-            { name: "Coal", value: "1/2" },
-            { name: "Iron", value: "1/5" },
-            { name: "Gold", value: "1/10" },
-            { name: "Dirt", value: "1/1" }
+            { numerator: 1, denominator: 2, name: "Coal" },
+            { numerator: 1, denominator: 5, name: "Iron" },
+            { numerator: 1, denominator: 10, name: "Gold" },
+            { numerator: 1, denominator: 1, name: "Dirt" }
         ];
 
         indexItems.forEach(item => {
             const p = document.createElement("p");
-            p.innerText = `${item.name}: ${item.value}`;
+            p.innerText = `${item.numerator}/${item.denominator} (${item.name})`;
             indexList.appendChild(p);
         });
     }
 
-    function showInventory() {
-        const inventoryList = document.getElementById("inventoryList");
-        inventoryList.innerHTML = "";
-        
-        savedFractions.forEach(item => {
-            const p = document.createElement("p");
-            p.innerText = `Saved Fraction: ${item.name} (${item.fraction})`;
-            inventoryList.appendChild(p);
-        });
-
-        // Add a button to change the background color of the inventory list
-        const changeColorButton = document.createElement("button");
-        changeColorButton.innerText = "Change Inventory Background Color";
-        changeColorButton.onclick = () => changeInventoryBackgroundColor();
-        inventoryList.appendChild(changeColorButton);
-    }
-
-    function changeInventoryBackgroundColor() {
-        const hexColor = prompt("Enter Hex Color Code for Inventory Background (e.g., #f0f0f0):");
-        document.getElementById("inventoryList").style.backgroundColor = hexColor;
+    function changeBackgroundColor() {
+        const hexColor = prompt("Enter Hex Color Code (e.g., #3498db):");
+        document.body.style.backgroundColor = hexColor;
     }
 
     // Load saved fractions on page load
@@ -168,6 +149,8 @@
         displaySavedScores();
     });
 </script>
+
+<button onclick="showIndex()">Index</button>
 
 </body>
 </html>
