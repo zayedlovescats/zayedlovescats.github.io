@@ -34,6 +34,12 @@
             white-space: nowrap;
         }
 
+        #savedScores {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+
         #indexList {
             background-color: #f0f0f0;
             padding: 10px;
@@ -84,6 +90,17 @@
             border-radius: 5px;
         }
 
+        #clearButton {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 8px 15px;
+            font-size: 14px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
         #changeBackgroundColorButton {
             background-color: #2ecc71;
             color: #fff;
@@ -102,11 +119,14 @@
 
 <button onclick="generateRandomNumber()">Generate Number</button>
 <button onclick="saveScore()">Save</button>
+<button id="clearButton" onclick="clearFractions()">Clear Fractions</button>
 <button id="changeBackgroundColorButton" onclick="changeBackgroundColor()">Change Background Color</button>
 <button id="indexButton" onclick="toggleIndex()">Index</button>
 <button id="inventoryButton" onclick="toggleInventory()">Inventory</button>
 
 <p id="randomNumber"></p>
+
+<div id="savedScores"></div>
 
 <div id="indexList"></div>
 <div id="inventory"></div>
@@ -157,21 +177,20 @@
         document.getElementById("randomNumber").innerText = `${name} (${currentFraction})`;
     }
 
-function saveScore() {
-    if (currentFraction !== undefined && !isSaved) {
-        savedFractions.push({ name: name, fraction: currentFraction });
-        savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
-        savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)); // Sort fractions in ascending order
-        localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
-        displayInventory();
-        isSaved = true;
-    } else if (isSaved) {
-        alert("You have already saved this fraction!");
-    } else {
-        alert("Generate a fraction first!");
+    function saveScore() {
+        if (currentFraction !== undefined && !isSaved) {
+            savedFractions.push({ name, fraction: currentFraction });
+            savedFractions = savedFractions.filter(item => item.fraction !== undefined); // Filter out undefined entries
+            savedFractions.sort((a, b) => eval(a.fraction) - eval(b.fraction)); // Sort fractions in ascending order
+            localStorage.setItem("savedFractions", JSON.stringify(savedFractions));
+            displayInventory();
+            isSaved = true;
+        } else if (isSaved) {
+            alert("You have already saved this fraction!");
+        } else {
+            alert("Generate a fraction first!");
+        }
     }
-}
-
 
     function displayInventory() {
         const inventoryElement = document.getElementById("inventory");
@@ -203,8 +222,6 @@ function saveScore() {
         indexItems.forEach(item => {
             const p = document.createElement("p");
             p.innerText = `${item.numerator}/${item.denominator} (${item.name})`;
-           
-
             indexList.appendChild(p);
         });
 
@@ -232,6 +249,12 @@ function saveScore() {
     function changeBackgroundColor() {
         const hexColor = prompt("Enter Hex Color Code (e.g., #3498db):");
         document.body.style.backgroundColor = hexColor;
+    }
+
+    function clearFractions() {
+        localStorage.removeItem("savedFractions");
+        savedFractions = [];
+        displayInventory();
     }
 
     // Load saved fractions on page load
