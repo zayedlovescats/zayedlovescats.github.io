@@ -55,6 +55,17 @@
             display: none; /* Hide by default */
         }
 
+        #inventory {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            max-height: 150px; /* Limiting the height */
+            overflow-y: auto; /* Adding a scrollbar if needed */
+            text-align: left; /* Align text to the left */
+            display: none; /* Hide by default */
+        }
+
         #closeButton {
             background-color: #e74c3c;
         }
@@ -71,6 +82,17 @@
             position: fixed;
             top: 10px;
             right: 20px;
+        }
+
+        #inventoryButton {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 8px 15px;
+            font-size: 14px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
         }
 
         #changeBackgroundColorButton {
@@ -92,12 +114,15 @@
 <button onclick="generateRandomNumber()">Generate Number</button>
 <button onclick="saveScore()">Save</button>
 <button id="changeBackgroundColorButton" onclick="changeBackgroundColor()">Change Background Color</button>
+<button id="indexButton" onclick="showIndex()">Index</button>
+<button id="inventoryButton" onclick="showInventory()">Inventory</button>
 
 <p id="randomNumber"></p>
 
 <div id="savedScores"></div>
 
 <div id="indexList"></div>
+<div id="inventory"></div>
 
 <script>
     let currentFraction;
@@ -186,6 +211,19 @@
         indexList.style.display = "block"; // Show the indexList
     }
 
+    function showInventory() {
+        const inventory = document.getElementById("inventory");
+        inventory.innerHTML = "";
+
+        savedFractions.forEach(item => {
+            const p = document.createElement("p");
+            p.innerText = `${item.name} (${item.fraction})`;
+            inventory.appendChild(p);
+        });
+
+        inventory.style.display = "block"; // Show the inventory
+    }
+
     function changeBackgroundColor() {
         const hexColor = prompt("Enter Hex Color Code (e.g., #3498db):");
         document.body.style.backgroundColor = hexColor;
@@ -196,8 +234,6 @@
         displaySavedScores();
     });
 </script>
-
-<button id="indexButton" onclick="showIndex()">Index</button>
 
 </body>
 </html>
