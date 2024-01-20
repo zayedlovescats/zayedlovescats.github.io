@@ -13,24 +13,40 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
-      justify-content: flex-end; /* Move content to the right */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     img {
-      position: absolute;
-      bottom: 30px; /* Adjust as needed */
-      right: 30px; /* Adjust as needed */
       max-width: 100%; /* Set width to 100% of viewport */
       height: auto;
     }
 
     .credits {
-      position: absolute;
-      bottom: 30px;
-      left: 30px;
       color: #fff;
       max-width: 300px;
       line-height: 1.5;
+      text-align: center;
+    }
+
+    .server-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      margin-top: 10px; /* Adjust as needed */
+      display: block;
+    }
+
+    .play-button {
+      background-color: #3498db;
+      color: #fff;
+      font-size: 24px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -39,16 +55,18 @@
 <img src="https://cdn.discordapp.com/attachments/1180648798972821630/1198130471410872320/roundcat.png?ex=65bdc8f4&is=65ab53f4&hm=47ed3ca45b02f8011161322d16150527df1001331fc7a533391d46f71dd95a71" alt="Round Cat Image">
 
 <div class="credits">
+  <a class="server-link" href="https://discord.gg/qxBBvAm2bM" target="_blank">Click me to join the Server</a>
   <h2>Credits:</h2>
   <ul>
-    <b><li>Game made by @thecatofalltime on Discord!</li></b>
+    <li>Game made by @thecatofalltime on Discord!</li>
     <li>Some features made by @millabasset on Discord!</li>
     <li>Background music made by @x2corp on Discord!</li>
     <li>Spawn sounds come from REx:R on Roblox</li>
     <li>Some sounds made by @tevv_ on Discord!</li>
-    <b><li>UI by @catlover on Discord!</li></b>
+    <li>UI by @CatLover/@ZayedLovesCats on Discord!</li>
   </ul>
-    <a class="server-link" href="https://discord.gg/qxBBvAm2bM" target="_blank">Click me to join the Discord Server!</a>
+
+  <button class="play-button">Play</button>
 </div>
 
 </body>
