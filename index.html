@@ -13,21 +13,24 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      justify-content: flex-end; /* Move content to the right */
     }
 
     img {
+      position: absolute;
+      bottom: 30px; /* Adjust as needed */
+      right: 30px; /* Adjust as needed */
       max-width: 100%; /* Set width to 100% of viewport */
       height: auto;
     }
 
     .credits {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
       color: #fff;
       max-width: 300px;
       line-height: 1.5;
-      text-align: center;
     }
 
     .server-link {
@@ -35,18 +38,13 @@
       text-decoration: none;
       font-size: 16px;
       margin-top: 10px; /* Adjust as needed */
-      display: block;
+      display: flex;
+      align-items: center; /* Center text and image vertically */
     }
 
-    .play-button {
-      background-color: #3498db;
-      color: #fff;
-      font-size: 24px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 20px;
+    .server-link img {
+      margin-right: 5px; /* Adjust as needed */
+      max-height: 20px; /* Adjust as needed */
     }
   </style>
 </head>
@@ -64,10 +62,11 @@
     <li>Some sounds made by @tevv_ on Discord!</li>
     <li>UI by @CatLover/@ZayedLovesCats on Discord!</li>
   </ul>
-  <a class="server-link" href="https://discord.gg/qxBBvAm2bM" target="_blank">Join the Server</a>
+  <a class="server-link" href="https://discord.gg/qxBBvAm2bM" target="_blank">
+    <img src="https://cdn.discordapp.com/attachments/1180648798972821630/1198147054090854440/discord-logo.png?ex=65bdd866&is=65ab6366&hm=e9b62d974e21650e6bc0f52760822994b24caaabdfd92b47af908ba4d534248e" alt="Discord Logo">
+    Join the discord server!
+  </a>
 </div>
-
-<button class="play-button">Play</button>
 
 </body>
 </html>
