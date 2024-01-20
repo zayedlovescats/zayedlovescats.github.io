@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Awesome UI</title>
+  <title>background tester !!</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -12,18 +12,20 @@
       padding: 0;
       height: 100vh;
       overflow: hidden;
+      display: flex;
+      justify-content: flex-end; /* Move content to the right */
     }
 
     .container {
       position: relative;
-      background-color: #1a1a1a;
+      background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       width: 300px;
       text-align: center;
       padding: 20px;
-      margin-left: 20px; /* Adjust as needed */
-      margin-top: -50px; /* Adjust as needed */
+      margin: 20px;
+      align-self: flex-end; /* Align to the bottom */
     }
 
     h1 {
@@ -32,8 +34,8 @@
 
     img {
       position: absolute;
-      bottom: 10px; /* Adjust as needed */
-      left: 10px; /* Adjust as needed */
+      bottom: 20px; /* Adjust as needed */
+      left: 20px; /* Adjust as needed */
       max-width: 100px; /* Adjust as needed */
       height: auto;
     }
@@ -43,7 +45,7 @@
 
 <div class="container">
   <h1>Awesome UI</h1>
-  <img src="https://cdn.discordapp.com/attachments/1180648798972821630/1198130471410872320/roundcat.png?ex=65bdc8f4&is=65ab53f4&hm=47ed3ca45b02f8011161322d16150527df1001331fc7a533391d46f71dd95a71&">
+  <img src="https://cdn.discordapp.com/attachments/1180648798972821630/1198130471410872320/roundcat.png?ex=65bdc8f4&is=65ab53f4&hm=47ed3ca45b02f8011161322d16150527df1001331fc7a533391d46f71dd95a71" alt="Round Cat Image">
 </div>
 
 </body>
