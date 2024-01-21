@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>browser rex ui for the game</title>
+  <title>Browser Rex UI for the Game</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -14,6 +14,7 @@
       overflow: hidden;
       display: flex;
       justify-content: flex-end;
+      align-items: center; /* Center vertically */
     }
 
     img.roundcat {
@@ -32,6 +33,20 @@
       width: 30%;
       height: auto;
       line-height: 1.5;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
     }
 
     .server-link {
@@ -57,12 +72,13 @@
 <div class="credits">
   <h2>Credits:</h2>
   <ul>
+    <b><li>UI by @catlover/@ZayedLovesCats on Discord! 😼</li></b>
     <b><li>Game made by @thecatofalltime on Discord! 😺</li></b>
     <li>Some features made by @millabasset on Discord! 💖</li>
     <li>Background music made by @x2corp on Discord!</li>
     <li>Spawn sounds come from REx:R on Roblox</li>
     <li>Some sounds made by @tevv_ on Discord!</li>
-    <b><li>UI by @catlover/@ZayedLovesCats on Discord! 😼</li></b>
+    <li>Thanks to all the spreadsheet editors!</li>
   </ul>
   <a class="server-link" href="https://discord.gg/qxBBvAm2bM" target="_blank">
     <img src="https://cdn.discordapp.com/attachments/1180648798972821630/1198147054090854440/discord-logo.png?ex=65bdd866&is=65ab6366&hm=e9b62d974e21650e6bc0f52760822994b24caaabdfd92b47af908ba4d534248e" alt="Discord Logo">
@@ -70,6 +86,8 @@
   </a>
 
 </div>
+
+<button class="play-button">Play</button>
 
 </body>
 </html>
