@@ -36,7 +36,7 @@ img.roundcat {
   transform: translate(-50%, -50%);
   background-color: #00cc00;
   color: #fff;
-  padding: .2vw 1vw; /* Reduced padding */
+  padding: 0.2vw 1vw; /* Reduced padding */
   font-size: 3vw; /* Reduced font size */
   border: none;
   cursor: pointer;
