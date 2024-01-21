@@ -23,37 +23,31 @@ img.roundcat {
   bottom: 5%;
   left: 5%;
   color: #fff;
-  width: 80vw; /* Adjusted to a percentage of the viewport width */
+  width: 80vw; /* 80% of viewport width */
   max-width: 400px; /* Set a maximum width to prevent it from becoming too wide */
   height: auto;
   line-height: 1.5;
 }
 
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #00cc00;
-  color: #fff;
-  padding: 0.2vw 1vw; /* Reduced padding */
-  font-size: 3vw; /* Reduced font size */
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+.credits h2 {
+  font-size: 2rem; /* Fixed font size for h2 element */
+}
+
+.credits li {
+  font-size: 1rem; /* Fixed font size for list items */
 }
 
 .server-link {
   color: #3498db;
   text-decoration: none;
-  font-size: 2vw; /* Adjusted font size */
+  font-size: 1.5rem; /* Fixed font size for server link */
   font-weight: bold;
-  margin-top: 1vh; /* Adjusted margin */
+  margin-top: 1vh; /* Adjusted margin based on viewport height */
   display: flex;
   align-items: center;
 }
 
 .server-link img {
-  margin-right: 1vw; /* Adjusted margin */
-  max-height: 6vh; /* Adjusted max height */
+  margin-right: 1rem; /* Adjusted margin based on viewport width */
+  max-height: 3vh; /* Adjusted max height based on viewport height */
 }
