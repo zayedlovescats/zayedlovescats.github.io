@@ -13,8 +13,8 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
-      justify-content: flex-end;
-      align-items: center; /* Align items vertically in the center */
+      justify-content: center;
+      align-items: center;
     }
 
     img.roundcat {
@@ -51,11 +51,7 @@
     }
 
     /* Play button styles */
-    .center {
-      text-align: center;
-    }
-
-    button {
+    #playButton {
       background-color: #4CAF50;
       color: white;
       font-size: 16px;
@@ -66,19 +62,18 @@
       transition: background-color 0.3s;
     }
 
-    button:hover {
+    #playButton:hover {
       background-color: #45a049;
     }
   </style>
 </head>
 <body>
 
+<!-- Play button -->
+<button id="playButton">Play</button>
+
 <img class="roundcat" src="https://cdn.discordapp.com/attachments/1180648798972821630/1198130471410872320/roundcat.png?ex=65bdc8f4&is=65ab53f4&hm=47ed3ca45b02f8011161322d16150527df1001331fc7a533391d46f71dd95a71" alt="Round Cat Image">
 
-  <div class="center">
-    <button id="playButton">Play</button>
-  </div>
-  
 <div class="credits">
   <h2>Credits:</h2>
   <ul>
@@ -93,6 +88,7 @@
     <img src="https://cdn.discordapp.com/attachments/1180648798972821630/1198147054090854440/discord-logo.png?ex=65bdd866&is=65ab6366&hm=e9b62d974e21650e6bc0f52760822994b24caaabdfd92b47af908ba4d534248e" alt="Discord Logo">
     Join the Server
   </a>
+
 </div>
 
 </body>
