@@ -13,8 +13,8 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-end;
+      align-items: center; /* Align items vertically in the center */
     }
 
     img.roundcat {
@@ -51,7 +51,11 @@
     }
 
     /* Play button styles */
-    #playButton {
+    .center {
+      text-align: center;
+    }
+
+    button {
       background-color: #4CAF50;
       color: white;
       font-size: 16px;
@@ -62,15 +66,12 @@
       transition: background-color 0.3s;
     }
 
-    #playButton:hover {
+    button:hover {
       background-color: #45a049;
     }
   </style>
 </head>
 <body>
-
-<!-- Play button -->
-<button id="playButton">Play</button>
 
 <img class="roundcat" src="https://cdn.discordapp.com/attachments/1180648798972821630/1198130471410872320/roundcat.png?ex=65bdc8f4&is=65ab53f4&hm=47ed3ca45b02f8011161322d16150527df1001331fc7a533391d46f71dd95a71" alt="Round Cat Image">
 
@@ -89,6 +90,10 @@
     Join the Server
   </a>
 
+  <!-- Play button -->
+  <div class="center">
+    <button id="playButton">Play</button>
+  </div>
 </div>
 
 </body>
