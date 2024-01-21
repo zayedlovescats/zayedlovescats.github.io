@@ -13,53 +13,16 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
-      justify-content: flex-end;
-    }
-
-    img.roundcat {
-      position: absolute;
-      bottom: 80px;
-      right: 30px;
-      width: 30%;
-      height: auto;
-    }
-
-    .credits {
-      position: absolute;
-      bottom: 5%;
-      left: 5%;
-      color: #fff;
-      width: 30%;
-      height: auto;
-      line-height: 1.5;
-    }
-
-    .server-link {
-      color: #3498db;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 10px;
-      display: flex;
-      align-items: center;
-    }
-
-    .server-link img {
-      margin-right: 10px;
-      max-height: 60px;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
     }
 
     /* Play button styles */
-    .center {
-      text-align: center;
-      margin-top: 20px; /* Adjust the margin to center the button */
-    }
-
     button {
       background-color: #4CAF50;
       color: white;
-      font-size: 16px; /* Adjust the font size to make it smaller */
-      padding: 10px 20px; /* Adjust padding to make it smaller */
+      font-size: 16px;
+      padding: 10px 20px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -73,28 +36,8 @@
 </head>
 <body>
 
-<img class="roundcat" src="https://cdn.discordapp.com/attachments/1180648798972821630/1198130471410872320/roundcat.png?ex=65bdc8f4&is=65ab53f4&hm=47ed3ca45b02f8011161322d16150527df1001331fc7a533391d46f71dd95a71" alt="Round Cat Image">
-
-<div class="credits">
-  <h2>Credits:</h2>
-  <ul>
-    <b><li>Game made by @thecatofalltime on Discord! 😺</li></b>
-    <li>Some features made by @millabasset on Discord! 💖</li>
-    <li>Background music made by @x2corp on Discord!</li>
-    <li>Spawn sounds come from REx:R on Roblox</li>
-    <li>Some sounds made by @tevv_ on Discord!</li>
-    <b><li>UI by @catlover/@ZayedLovesCats on Discord! 😼</li></b>
-  </ul>
-  <a class="server-link" href="https://discord.gg/qxBBvAm2bM" target="_blank">
-    <img src="https://cdn.discordapp.com/attachments/1180648798972821630/1198147054090854440/discord-logo.png?ex=65bdd866&is=65ab6366&hm=e9b62d974e21650e6bc0f52760822994b24caaabdfd92b47af908ba4d534248e" alt="Discord Logo">
-    Join the Server
-  </a>
-
-  <!-- Play button -->
-  <div class="center">
-    <button id="playButton">Play</button>
-  </div>
-</div>
+<!-- Play button -->
+<button id="playButton">Play</button>
 
 </body>
 </html>
