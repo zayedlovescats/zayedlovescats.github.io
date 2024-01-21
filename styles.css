@@ -37,6 +37,20 @@ img.roundcat {
   font-size: 1rem; /* Fixed font size for list items */
 }
 
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #00cc00;
+  color: #fff;
+  padding: 0.5vw 2vw; /* Reduced padding */
+  font-size: 1.75vw; /* Reduced font size */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 .server-link {
   color: #3498db;
   text-decoration: none;
