@@ -23,7 +23,8 @@ img.roundcat {
   bottom: 5%;
   left: 5%;
   color: #fff;
-  width: 30vw; /* 30% of viewport width */
+  width: 30%; /* Adjusted to a percentage of the viewport width */
+  max-width: 300px; /* Set a maximum width to prevent it from becoming too wide */
   height: auto;
   line-height: 1.5;
 }
@@ -35,8 +36,8 @@ img.roundcat {
   transform: translate(-50%, -50%);
   background-color: #00cc00;
   color: #fff;
-  padding: 3vw 6vw; /* 3% of viewport width and 6% of viewport height */
-  font-size: 4vw; /* 4% of viewport width */
+  padding: 1.5vw 3vw; /* Reduced padding */
+  font-size: 2.5vw; /* Reduced font size */
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -45,14 +46,14 @@ img.roundcat {
 .server-link {
   color: #3498db;
   text-decoration: none;
-  font-size: 3vw; /* 3% of viewport width */
+  font-size: 2vw; /* Adjusted font size */
   font-weight: bold;
-  margin-top: 2vh; /* 2% of viewport height */
+  margin-top: 1vh; /* Adjusted margin */
   display: flex;
   align-items: center;
 }
 
 .server-link img {
-  margin-right: 2vw; /* 2% of viewport width */
-  max-height: 10vh; /* 10% of viewport height */
+  margin-right: 1vw; /* Adjusted margin */
+  max-height: 6vh; /* Adjusted max height */
 }
