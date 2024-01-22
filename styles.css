@@ -1,67 +1,57 @@
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #1a1a1a;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center; /* Center vertically */
-}
-
-img.roundcat {
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
-  width: 20vw; /* 20% of viewport width */
-  max-height: 40vh; /* 40% of viewport height */
-}
-
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+ img.roundcat {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 20vw;
+    max-height: 40vh;
+  }
+  
 .credits {
-  position: absolute;
-  bottom: 5%;
-  left: 5%;
-  color: #fff;
-  width: 80vw; /* 80% of viewport width */
-  max-width: 400px; /* Set a maximum width to prevent it from becoming too wide */
-  height: auto;
-  line-height: 1.5;
-}
-
-.credits h2 {
-  font-size: 2rem; /* Fixed font size for h2 element */
-}
-
-.credits li {
-  font-size: 1rem; /* Fixed font size for list items */
-}
-
+    position: absolute;
+    bottom: 2%;
+    left: 3%;
+    color: #fff;
+    width: 80vw;
+    line-height: 2.5;
+    font-size: 20px;
+  }
+  
 .play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #00cc00;
-  color: #fff;
-  padding: 0.5vw 2vw; /* Reduced padding */
-  font-size: 1.75vw; /* Reduced font size */
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333333;
+    color: #fff;
+    padding: 0.25vw 1.2vw;
+    font-size: 1.75vw;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
 .server-link {
-  color: #3498db;
-  text-decoration: none;
-  font-size: 1.5rem; /* Fixed font size for server link */
-  font-weight: bold;
-  margin-top: 1vh; /* Adjusted margin based on viewport height */
-  display: flex;
-  align-items: center;
-}
-
+    color: #3498db;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 1vh;
+    display: flex;
+    align-items: center;
+  }
+  
 .server-link img {
-  margin-right: 1rem; /* Adjusted margin based on viewport width */
-  max-height: 3vh; /* Adjusted max height based on viewport height */
-}
+    margin-right: 1rem;
+    max-height: 10vh;
+  }
