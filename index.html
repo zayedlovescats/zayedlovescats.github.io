@@ -3,32 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Browser Rex UI for the Game</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Settings</title>
 </head>
 <body>
-  
-<img class="roundcat" src="https://cdn.discordapp.com/attachments/1180648798972821630/1198130471410872320/roundcat.png?ex=65bdc8f4&is=65ab53f4&hm=47ed3ca45b02f8011161322d16150527df1001331fc7a533391d46f71dd95a71" alt="Round Cat Image">
 
-<div class="credits">
-  <h2>Credits:</h2>
-  <ul>
-    <b><li>UI by @catlover/@ZayedLovesCats on Discord! 😼</li></b>
-    <b><li>Game made by @thecatofalltime on Discord! 😺</li></b>
-    <li>Some features made by @millabasset on Discord! 💖</li>
-    <li>Background music made by @x2corp on Discord!</li>
-    <li>Spawn sounds come from REx:R on Roblox</li>
-    <li>Some sounds made by @tevv_ on Discord!</li>
-    <li>Thanks to all the spreadsheet editors!</li>
-  </ul>
-  <a class="server-link" href="https://discord.gg/qxBBvAm2bM" target="_blank">
-    <img src="https://cdn.discordapp.com/attachments/1180648798972821630/1198147054090854440/discord-logo.png?ex=65bdd866&is=65ab6366&hm=e9b62d974e21650e6bc0f52760822994b24caaabdfd92b47af908ba4d534248e" alt="Discord Logo">
-    Join the Server
-  </a>
+  <div class="container">
+    <h1>Settings</h1>
 
-</div>
+    <div class="setting">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username">
+    </div>
 
-<button class="play-button">Play</button>
+    <div class="setting">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+    </div>
+
+    <div class="setting">
+      <label for="theme">Select Theme:</label>
+      <select id="theme" name="theme">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+
+    <button type="button">Save Settings</button>
+  </div>
 
 </body>
 </html>
