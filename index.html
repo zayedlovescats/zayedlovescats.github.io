@@ -4,33 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Settings</title>
+  <title>settings for ambers game i did this fast im sorry lolol</title>
 </head>
 <body>
 
   <div class="container">
     <h1>Settings</h1>
 
-    <div class="setting">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" placeholder="Enter your username">
+
+    <img class="cat" src="https://media.discordapp.net/attachments/1182121405542838275/1199182531732443168/togif.gif?ex=65c19cc3&is=65af27c3&hm=e49b976431441e5564ba63a2ae2a3c5aa2556af71655af1e7fe734ab89827228&=&width=584&height=602" alt="cat image">
+
+    <button onclick="openFrame('audio')">Audio Settings</button>
+    <button onclick="openFrame('game')">Game Settings</button>
+    <button onclick="openFrame('inventory')">Inventory Settings</button>
+    <button onclick="openFrame('color')">Color Settings</button>
+    <button onclick="openFrame('data')">Data Settings</button>
+
+    <div class="frame" id="audio-frame">
+      <h2>Audio Settings</h2>
     </div>
 
-    <div class="setting">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email">
+    <div class="frame" id="inventory-frame">
+      <h2>Inventory Settings</h2>
     </div>
 
-    <div class="setting">
-      <label for="theme">Select Theme:</label>
-      <select id="theme" name="theme">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
+    <div class="frame" id="game-frame">
+      <h2>Game Settings</h2>
     </div>
 
-    <button type="button">Save Settings</button>
+    <div class="frame" id="color-frame">
+      <h2>Color Settings</h2>
+    </div>
+
+    <div class="frame" id="data-frame">
+      <h2>Data Settings</h2>
+    </div>
   </div>
+
+  <script>
+    function openFrame(frameId) {
+      document.querySelectorAll('.frame').forEach(frame => {
+        frame.style.display = 'none';
+      });
+
+      const selectedFrame = document.getElementById(`${frameId}-frame`);
+      if (selectedFrame) {
+        selectedFrame.style.display = 'block';
+      }
+    }
+  </script>
+
+<div class="credits-container">
+  <b><p>settings design by zayedlovescats</a> (@catlover)</p></b>
+</div>r>
 
 </body>
 </html>
