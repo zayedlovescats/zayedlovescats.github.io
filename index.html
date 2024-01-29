@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>settings for ambers game i did this fast im sorry lolol</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif; /* Use a non-cursive font like Arial */
+    }
+
+    input[type="text"] {
+      font-family: Arial, sans-serif; /* Set font for the input field */
+    }
+
+    button {
+      font-family: Arial, sans-serif; /* Set font for the button */
+    }
+  </style>
 </head>
 <body>
 
@@ -30,6 +43,15 @@
 
     <div class="frame" id="game-frame">
       <h2>Game Settings</h2>
+      <input autocomplete="off" type="text" id="mineCapacitySetter">
+<button onclick="updateCapacity(document.getElementById('mineCapacitySetter').value)">Update Capacity</button>
+
+<script>
+  function updateCapacity(value) {
+    console.log("Updating capacity with value:", value);
+  }
+</script>
+
     </div>
 
     <div class="frame" id="color-frame">
